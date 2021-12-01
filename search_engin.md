@@ -105,8 +105,8 @@ FULLTEXT INDEX는 일반적인 인덱스와는 달리 매우 빠르게 테이블
 + Elasticsearch의 데이터들은 인덱스(Index) 라는 논리적인 집합 단위로 구성되며 서로 다른 저장소에 분산되어 저장된다. 서로 다른 인덱스들을 별도의 커넥션 없이 하나의 질의로 묶어서 검색하고, 검색 결과들을 하나의 출력으로 도출할 수 있는데, Elasticsearch의 이러한 특징을 멀티테넌시 라고 한다.
 
 ### 클러스터 구성
+<img src = "https://user-images.githubusercontent.com/90595291/144285870-76934c26-002a-4543-991e-94c29e917008.png" width= "50%" height="50%"><br>
 
-![image](https://user-images.githubusercontent.com/90595291/144285870-76934c26-002a-4543-991e-94c29e917008.png){: width="300" height="300"}
-cpu2 메모리 4GB 스펙의 인스턴스 2개(첫 사용기간 3개월 무료!!) <br>
+cpu2 메모리 4GB 스펙의 인스턴스 2개(첫 사용기간 3개월 무료!!) 
 두개의 서버 모두 elasticsearch 각각의 서버에 logstash, kibana를 따로 사용중이다.
 defalt 값으로 elasticsearch와 kibana에 heap memory가 1GB로 설정되어있어 메모리 4GB를 선택 하였다.(heap memory를 더 작게 부여할 수 있었지만 온전히 기능 이용하고 싶었다.)
