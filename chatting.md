@@ -1,8 +1,6 @@
 ## Chatting
 
 
-
-
 ![room별 유저리스트](https://user-images.githubusercontent.com/46738141/144252640-1731eee9-611b-41a1-891a-a722bafb84d7.png)
 위 그림 처럼 각 방의 유저리스트라는 배열을 선언하고
 
@@ -20,7 +18,9 @@
 
 처음에는 disconnect 이벤트에 될거라 생각해 시도해 보았지만
 되지 않았고 disconnecting 이라는 이벤트를 찾게 된다.
+![image](https://user-images.githubusercontent.com/46738141/144255261-78db6760-d7bd-43fc-8150-b53166097752.png)
 이것은 연결이 끊어지는 중, 말 그대로 연결이 끊어지는 이벤트가 발생하면 그 전에 이벤트를 보내는 효자 이벤트였다.
 이 것을 이용해 disconnect가 발생하면 user_left랑 비슷하게 모든 방에서 나가게 구현 하였더니
 잘 작동하였다
-![image](https://user-images.githubusercontent.com/46738141/144255261-78db6760-d7bd-43fc-8150-b53166097752.png)
+![image](https://user-images.githubusercontent.com/46738141/144264832-adb47e29-bfc3-4186-b1c1-7bcc98f1e2bc.png)
+
