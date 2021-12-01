@@ -19,3 +19,16 @@
   ### 우리는 이 값이 확실이 있는것임을 확신한다.
   ### sequelize 와 typescript
   
+  
+
+
+  ### promise.all 타입 unknown[] 이슈 (아직 미해결)
+  
+  typescript 적용 중에 promise.all의 결과 값의 타입이 unknown[]으로 나와 오류가 발생
+
+  여러가지의 타입 지정이나 인터페이스로 해결해 보려고 했으나 결국 any를 사용하였다.
+
+  
+![image](https://user-images.githubusercontent.com/46738141/144229360-cd00ac57-0811-4795-8295-9df5f8f1df1a.png)
+![image](https://user-images.githubusercontent.com/46738141/144229449-adab5bf9-adb8-4d1d-9c38-08eed7ea9770.png)
+
