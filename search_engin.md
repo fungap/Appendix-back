@@ -106,7 +106,7 @@ FULLTEXT INDEX는 일반적인 인덱스와는 달리 매우 빠르게 테이블
 
 ### 클러스터 구성
 
-![image](https://user-images.githubusercontent.com/90595291/144285870-76934c26-002a-4543-991e-94c29e917008.png)
+![image](https://user-images.githubusercontent.com/90595291/144285870-76934c26-002a-4543-991e-94c29e917008.png){: width="300" height="300"}
 cpu2 메모리 4GB 스펙의 인스턴스 2개(첫 사용기간 3개월 무료!!) <br>
 두개의 서버 모두 elasticsearch 각각의 서버에 logstash, kibana를 따로 사용중이다.
 defalt 값으로 elasticsearch와 kibana에 heap memory가 1GB로 설정되어있어 메모리 4GB를 선택 하였다.(heap memory를 더 작게 부여할 수 있었지만 온전히 기능 이용하고 싶었다.)
