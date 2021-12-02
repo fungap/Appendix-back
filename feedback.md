@@ -8,10 +8,11 @@
 저희는 CI/CD툴로 젠킨스를 사용하였으며 git push 가 일어나면 서버에 자동적으로 통합 배포 파이프라인을 구축하였습니다.
 
 ### 왜 scale out 을 안하고 scale up을 하였는지
+
 기본적으로 프리티어 aws에서는 jenkins 조차 제대로 돌아가지 않는 현상이 발생
 scale out을 한다고 하더라도 결국엔 manager node인 서버에서는 모니터링 컨테이너 등을 운용해야 하는데
-프리티어인 서버성능으로는 운용하기 힘들다고 판단하였고 
-AWS 프리티어 1코어 1GIB 메모리  말고 무료로 사용할 수 있는 GCP 2코어 4GIB메모리를 사용하지 않을 이유가 없다고 생각했습니다. 
+프리티어인 서버성능으로는 운용하기 힘들다고 판단하였고
+AWS 프리티어 1코어 1GIB 메모리 말고 무료로 사용할 수 있는 GCP 2코어 4GIB메모리를 사용하지 않을 이유가 없다고 생각했습니다.
 
 ### GCP와 AWS 서비스를 함께 사용한 이유는?
 
@@ -63,11 +64,13 @@ EC2의 성능을 올리기 위해서는 비용이 발생하는데 GCP는 3개월
   현재는 욕설 필터링에 걸리면 그 부분은 채팅로그(조회가 일어나는)에 저장하는 것이 아니라 백업채팅로그에 저장하도록 하여서 사용자에게 보여주지는 않되 데이터는 보존하는 형태로 구현을 하였습니다.
 
 ### Helmet이 어떤 모듈인가
-Express.js 사용시 Http 헤더 설정을 자동으로 바꾸어주어 잘 알려진 몇가지 앱의 취약성으로 부터 앱을 보호 할 수 있는 패키지이다.<br>
-* Helmet는 다음과 같은 미들웨어로 이루어 져 있다.<br>
-helmet.contentSecurityPolicy(options) : XSS(Cross site scripting) 공격 및 기타 교차 사이트 인젝션 예방
 
-- [Content Security Policy (CSP) - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+Express.js 사용시 Http 헤더 설정을 자동으로 바꾸어주어 잘 알려진 몇가지 앱의 취약성으로 부터 앱을 보호 할 수 있는 패키지이다.<br>
+
+- Helmet는 다음과 같은 미들웨어로 이루어 져 있다.<br>
+  helmet.contentSecurityPolicy(options) : XSS(Cross site scripting) 공격 및 기타 교차 사이트 인젝션 예방
+
+* [Content Security Policy (CSP) - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
 
 helmet.crossOriginEmbedderPolicy() : Cross-Origin-Embedder-Policy 헤더를 require-corp로 설정
 
@@ -135,10 +138,37 @@ helmet.xssFilter() : X-XSS-Protection 헤더를 0으로 설정하여 크로스�
 
 ### http와 https의 차이점은 무엇인가.
 
+HTTP(Hyper Text Transfer Protocol)란 서버/클라이언트 모델을 따라 데이터를 주고 받기 위한 프로토콜이다.
+
+즉, HTTP는 인터넷에서 하이퍼텍스트를 교환하기 위한 통신 규약으로, 80번 포트를 사용하고 있다. 따라서 HTTP 서버가 80번 포트에서 요청을 기다리고 있으며, 클라이언트는 80번 포트로 요청을 보내게 된다.
+HTTP는 애플리케이션 레벨의 프로토콜로 TCP/IP 위에서 작동한다. HTTP는 상태를 가지고 있지 않는 Stateless 프로토콜이며 Method, Path, Version, Headers, Body 등으로 구성된다.
+![image](https://user-images.githubusercontent.com/46738141/144450689-10b95e59-5945-4d7e-be9e-6e28a9b83547.png)
+
+하지만 HTTP는 암호화가 되지 않은 평문 데이터를 전송하는 프로토콜이였기 때문에, HTTP로 비밀번호나 주민등록번호 등을 주고 받으면 제3자가 정보를 조회할 수 있었다. 그리고 이러한 문제를 해결하기 위해 HTTPS가 등장하게 되었다.
+<br><br>
+HTTPS는 HTTP에 데이터 암호화가 추가된 프로토콜이다. HTTPS는 HTTP와 다르게 443번 포트를 사용하며, 네트워크 상에서 중간에 제3자가 정보를 볼 수 없도록 공개키 암호화를 지원하고 있다.
+
+HTTPS는 SSL과 같은 프로토콜을 사용하여 공개키/개인키 기반으로 데이터를 암호화하고 있다. 데이터는 암호화되어 전송되기 때문에 임의의 사용자가 데이터를 조회하여도 원본의 데이터를 보는 것은 불가능하다.
+
+그렇다면 이제 서버는 클라이언트가 요청을 보낼 때 암호화를 하기 위한 공개키를 생성해야 하는데, 일반적으로는 인증된 기관(Certificate Authority) 에 공개키를 전송하여 인증서를 발급받고 있다. 자세한 과정은 다음과 같다.
+
+A기업은 HTTP 기반의 애플리케이션에 HTTPS를 적용하기 위해 공개키/개인키를 발급함
+CA 기업에게 돈을 지불하고, 공개키를 저장하는 인증서의 발급을 요청함
+CA 기업은 CA기업의 이름, 서버의 공개키, 서버의 정보 등을 기반으로 인증서를 생성하고, CA 기업의 개인키로 암호화하여 A기업에게 이를 제공함
+A기업은 클라이언트에게 암호화된 인증서를 제공함
+브라우저는 CA기업의 공개키를 미리 다운받아 갖고 있어, 암호화된 인증서를 복호화함
+암호화된 인증서를 복호화하여 얻은 A기업의 공개키로 데이터를 암호화하여 요청을 전송함
+
+![image](https://user-images.githubusercontent.com/46738141/144450339-d05bfb82-0991-4d77-8df9-ff46efa8bee9.png)
+
+출처: https://mangkyu.tistory.com/98 [MangKyu's Diary]
+
 ### 단순하게 https를 사용한다고 해서 보안이 더 나아지는가?
 
 ### node와 mysql을 조합하여 사용했는데, 이에 대한 단점이 무엇이라고 생각하시나요?1
 
 ### node의 특징과 장점
+
 https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=silver889&logNo=220204778189
+
 ### node와 MySQL이 어떤 상황에 사용되어야 유리할까요?
