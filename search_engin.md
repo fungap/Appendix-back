@@ -188,3 +188,25 @@ output : 최종적으로 elasticsearch 서버에 host, user, password, 저장할
 
  현재도 여러 tokenfilter를 찾아보고 조합하며 사용자가 검색단어를 입력하였을 때, 최대한 원하는 결과를 <br>
  보여줄 수 있도록 시험중이다.
+
+
+ ## log_analysis_Tool
+개발단계의 배포에서 지인들에게 피드백을 받는 과정중에 쌓이는 로그들을 저장하고<br>
+찾는 과정에서 Apache web log를 decode 하는것과 수 많은 로그들을 일일이 <br>
+확인할 수 없었다.
+<img src="https://user-images.githubusercontent.com/90595291/144351584-d158e735-bfd5-4d2c-8374-94c32d99802f.png" width= "50%" height="50%">
+
+따라서 이러한 web 로그들을 효과적으로 이용하여 fungap 서비스의 보완점과 취약점을<br>
+훨씬 분석적으로 접근할 수 있겠다고 생각하여 ELK stack과 Beats를 사용하게 되었습니다.
+
+하루 약 200건 이상의 비정상적 접근
+<img src="https://user-images.githubusercontent.com/90595291/144362364-de6b0587-ce23-4e38-8867-70e16ae2a764.png" width= "50%" height="50%">
+
+검색어 순위(인기 검색어)
+<img src="https://user-images.githubusercontent.com/90595291/144362603-9651dbf6-45f7-45d4-b5b3-71ec3ff4b951.png" width= "50%" height="50%">
+
+총 이벤트 수, 접속 ip수, 평균 바이트
+<img src="https://user-images.githubusercontent.com/90595291/144362763-d6a7ba8f-ebbe-419c-adaa-e6c0b5570dda.png" width= "50%" height="50%">
+
+지도위 geo ip 위치
+<img src="https://user-images.githubusercontent.com/90595291/144363013-7315e3e8-b4bd-4dd2-8357-d50f40076870.png" width= "50%" height="50%">
