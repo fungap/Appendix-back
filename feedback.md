@@ -63,6 +63,17 @@ EC2의 성능을 올리기 위해서는 비용이 발생하는데 GCP는 3개월
   현재는 욕설 필터링에 걸리면 그 부분은 채팅로그(조회가 일어나는)에 저장하는 것이 아니라 백업채팅로그에 저장하도록 하여서 사용자에게 보여주지는 않되 데이터는 보존하는 형태로 구현을 하였습니다.
 
 ### Helmet이 어떤 모듈인가
+Express.js 사용시 Http 헤더 설정을 자동으로 바꾸어주어 잘 알려진 몇가지 앱의 취약성으로 부터 앱을 보호 할 수 있는 패키지이다.<br>
+* Helmet는 다음과 같은 미들웨어로 이루어 져 있다.<br>
+csp: Content-Security-Policy 헤더 설정. XSS(Cross-site scripting) 공격 및 기타 교차 사이트 인젝션 예방.<br>
+hidePoweredBy: X-Powered-By 헤더 제거.<br>
+hpkp: Public Key Pinning 헤더 추가. 위조된 인증서를 이용한 중간자 공격 방지.<br>
+hsts: SSL/TLS를 통한 HTTP 연결을 적용하는 Strict-Transport-Security 헤더 설정.<br>
+noCache : Cache-Control 및 Pragma 헤더를 설정하여 클라이언트 측에서 캐싱을 사용하지 않도록 함.<br>
+frameguard : X-Frame-Options 헤더 설정하여 clickjacking에 대한 보호 제공.<br>
+ieNoOpen : (IE8 이상) X-Download-Options 설정.<br>
+xssFilter :  X-XSS-Protection 설정. 대부분의 최신 웹 브라우저에서 XSS(Cross-site scripting) 필터를 사용.<br>
+noSniff : X-Content-Type-Options 설정하여, 선언된 콘텐츠 유형으로부터 벗어난 응답에 대한 브라우저의 MIME 가로채기를 방지.<br>
 
 ### http와 https의 차이점은 무엇인가.
 
