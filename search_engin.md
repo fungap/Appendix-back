@@ -172,8 +172,8 @@ output : 최종적으로 elasticsearch 서버에 host, user, password, 저장할
 
 #### 2. Text Analysis
  이 과정을 처리하는 기능을 애널라이저(Analyzer) 라고 한다. <br>
- Elasticsearch의 애널라이저는 0~3개의 캐릭터 필터(Character Filter)와 1개의 토크나이저(Tokenizer), <br>
- 그리고 0~n개의 토큰 필터(Token Filter)로 이루어진다.<br>
+ Elasticsearch의 애널라이저는 0\~3개의 캐릭터 필터(Character Filter)와 1개의 토크나이저(Tokenizer), <br>
+ 그리고 0\~n개의 토큰 필터(Token Filter)로 이루어진다.<br>
  
  이렇게 문자열을 tokenizer와 Token Filter로 각각의 Term들로 어떻게 나누는지에 따라 특정단어를 검색했을 때<br>
  결과들을 조율할 수 있다. 
