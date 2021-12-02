@@ -79,8 +79,8 @@ noSniff : X-Content-Type-Options 설정하여, 선언된 콘텐츠 유형으로�
 
 ### 단순하게 https를 사용한다고 해서 보안이 더 나아지는가?
 
-### node와 mysql을 조합하여 사용했는데, 이에 대한 단점이 무엇이라고 생각하시나요?
+### node와 mysql을 조합하여 사용했는데, 이에 대한 단점이 무엇이라고 생각하시나요?1
 
 ### node의 특징과 장점
-
+https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=silver889&logNo=220204778189
 ### node와 MySQL이 어떤 상황에 사용되어야 유리할까요?
