@@ -20,6 +20,9 @@
   ### sequelize 와 typescript
   
   
+  
+  
+  
 
 
   ### promise.all 타입 unknown[] 이슈 (아직 미해결)
