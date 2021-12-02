@@ -65,15 +65,73 @@ EC2의 성능을 올리기 위해서는 비용이 발생하는데 GCP는 3개월
 ### Helmet이 어떤 모듈인가
 Express.js 사용시 Http 헤더 설정을 자동으로 바꾸어주어 잘 알려진 몇가지 앱의 취약성으로 부터 앱을 보호 할 수 있는 패키지이다.<br>
 * Helmet는 다음과 같은 미들웨어로 이루어 져 있다.<br>
-csp: Content-Security-Policy 헤더 설정. XSS(Cross-site scripting) 공격 및 기타 교차 사이트 인젝션 예방.<br>
-hidePoweredBy: X-Powered-By 헤더 제거.<br>
-hpkp: Public Key Pinning 헤더 추가. 위조된 인증서를 이용한 중간자 공격 방지.<br>
-hsts: SSL/TLS를 통한 HTTP 연결을 적용하는 Strict-Transport-Security 헤더 설정.<br>
-noCache : Cache-Control 및 Pragma 헤더를 설정하여 클라이언트 측에서 캐싱을 사용하지 않도록 함.<br>
-frameguard : X-Frame-Options 헤더 설정하여 clickjacking에 대한 보호 제공.<br>
-ieNoOpen : (IE8 이상) X-Download-Options 설정.<br>
-xssFilter :  X-XSS-Protection 설정. 대부분의 최신 웹 브라우저에서 XSS(Cross-site scripting) 필터를 사용.<br>
-noSniff : X-Content-Type-Options 설정하여, 선언된 콘텐츠 유형으로부터 벗어난 응답에 대한 브라우저의 MIME 가로채기를 방지.<br>
+helmet.contentSecurityPolicy(options) : XSS(Cross site scripting) 공격 및 기타 교차 사이트 인젝션 예방
+
+- [Content Security Policy (CSP) - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+
+helmet.crossOriginEmbedderPolicy() : Cross-Origin-Embedder-Policy 헤더를 require-corp로 설정
+
+- [Cross-Origin-Embedder-Policy - HTTP | MDN](https://developer.cdn.mozilla.net/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy)
+
+helmet.crossOriginOpenerPolicy() : Cross-Origin-Opener-Policy 헤더를 설정
+
+- [Cross-Origin-Opener-Policy - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy)
+
+helmet.crossOriginResourcePolicy() : Cross-Origin-Resource-Policy 헤더를 설정
+
+- [Consider deploying Cross-Origin Resource Policy.](https://resourcepolicy.fyi/)
+- [Cross-Origin-Resource-Policy - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Resource-Policy)
+
+helmet.expectCt(options) : Expect-CT 헤더를 설정하여 SSL 인증서 오발급을 예방
+
+- [Certificate Transparency - Web security | MDN](https://developer.mozilla.org/en-US/docs/Web/Security/Certificate_Transparency)
+- [Expect-CT - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expect-CT)
+
+helmet.referrerPolicy(options) : Referrer-Policy 헤더를 설정하여 민감한 정보 유출 예방
+
+- [Referer - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer)
+- [Referer header: privacy and security concerns - Web security | MDN](https://developer.mozilla.org/en-US/docs/Web/Security/Referer_header:_privacy_and_security_concerns)
+- [Referrer-Policy - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
+
+helmet.hsts(options) : Strict-Transport-Security 헤더를 설정하여 보안연결(HTTPS) 강제
+
+- [Strict-Transport-Security - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security)
+
+helmet.noSniff() : X-Content-Type-Options 헤더를 nosniff로 설정하여 MIME 스니핑 예방
+
+- [MIME types (IANA media types) - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#MIME_sniffing)
+- [X-Content-Type-Options - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options)
+
+helmet.originAgentCluster() : Origin-Agent-Cluster 헤더를 설정하여 오리진간 문서를 별도 에이전트 클러스터로 분리
+
+- [HTML Standard](https://whatpr.org/html/6214/origin.html#origin-keyed-agent-clusters)
+
+helmet.dnsPrefetchControl(options) : X-DNS-Prefetch-Control 헤더를 설정하여 DNS 프리패칭을 조절
+
+- [X-DNS-Prefetch-Control - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control)
+
+helmet.ieNoOpen() : X-Download-Options 헤더를 설정하여 ie8 이상에서만 사용할 수 있도록 함
+
+- [IE8 Security Part V: Comprehensive Protection](https://docs.microsoft.com/en-us/archive/blogs/ie/ie8-security-part-v-comprehensive-protection)
+
+helmet.frameguard(options) : X-Frame-Options 헤더를 설정하여 clickjacking 공격을 예방
+
+- [Clickjacking](https://en.wikipedia.org/wiki/Clickjacking)
+- [CSP: frame-ancestors - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors)
+- [X-Frame-Options - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
+
+helmet.permittedCrossDomainPolicies(options) : X-Permitted-Cross-Domain-Policies 헤더를 설정하여 크로스도메인 컨텐츠 정책을 설정
+
+- [OWASP Secure Headers Project](https://owasp.org/www-project-secure-headers/)
+
+helmet.hidePoweredBy() : X-Powered-By 헤더를 제거하여 웹앱의 프레임워크를 특정할 수 없도록 함
+
+- [Security improvement: don't reveal powered-by by madarche · Pull Request #2813 · expressjs/express](https://github.com/expressjs/express/pull/2813#issuecomment-159270428)
+
+helmet.xssFilter() : X-XSS-Protection 헤더를 0으로 설정하여 크로스사이트 스크립트를 이용한 공격을 예방
+
+- [X-XSS-Protection: header should be disabled by default · Issue #230 · helmetjs/helmet](https://github.com/helmetjs/helmet/issues/230)
+- [X-XSS-Protection - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection)
 
 ### http와 https의 차이점은 무엇인가.
 
