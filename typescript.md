@@ -19,12 +19,8 @@
   ### 우리는 이 값이 확실이 있는것임을 확신한다.
   ### sequelize 와 typescript
   
+  --------------------------------------
   
-  
-  
-  
-
-
   ### promise.all 타입 unknown[] 이슈 (아직 미해결)
   
   typescript 적용 중에 promise.all의 결과 값의 타입이 unknown[]으로 나와 오류가 발생
