@@ -110,3 +110,7 @@ FULLTEXT INDEX는 일반적인 인덱스와는 달리 매우 빠르게 테이블
 cpu2 메모리 4GB 스펙의 인스턴스 2개(첫 사용기간 3개월 무료!!) 
 두개의 서버 모두 elasticsearch 각각의 서버에 logstash, kibana를 따로 사용중이다.
 defalt 값으로 elasticsearch와 kibana에 heap memory가 1GB로 설정되어있어 메모리 4GB를 선택 하였다.(heap memory를 더 작게 부여할 수 있었지만 온전히 기능 이용하고 싶었다.)
+
+### JDBC(Java Database connectivity)
+Java 프로그램이 데이터베이스 관리 시스템에 액세스할 수 있도록 하는 표준 API <br>
+(응용 프로그래밍 인터페이스)의 JavaSoft 사양입니다
