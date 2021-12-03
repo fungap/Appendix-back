@@ -160,7 +160,12 @@ services:
   도커스웜은 오토스케일링을 지원하지 않습니다. 따라서 모니터링에 신경을 더 써줘야 할 것 같다고 생각했습니다. <br>
   그라파나에 CPU가 85퍼센트가 이상일때 슬랙에 알람을 주게 설정을 합니다.<br>
   알람을 받으면 직접 스케일 아웃을 해줍니다. <br>
-  docker service scale 명령으로 스케일 수를 지정해주면 도커 스웜이 알아서 스케쥴링 해줍니다.<br><br>
+  
+  1.work노드를 하나 더 추가 한 경우의 성능 테스트<br> 
+  표본수 2000  워커 노드 2개 일경우와 비교해서 응답시간이 2배 빨라짐
+  ![image](https://user-images.githubusercontent.com/88120776/144546318-161d93e0-3124-4843-be81-c2d7a6a765a4.png)
+
+  2.다른 서버를 하나 붙여서 scale out  
   ![image](https://user-images.githubusercontent.com/88120776/144160609-d95c876c-773a-482c-8c2e-33110a04efb0.png)
   ![image](https://user-images.githubusercontent.com/88120776/144156486-9befc28c-b555-4d73-ab8b-ae9783e09c12.png)
 
