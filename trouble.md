@@ -8,12 +8,12 @@
  ![image](https://user-images.githubusercontent.com/88120776/145165397-20c75c8f-dd5a-40aa-93a3-38b462c6c341.png)
 <br>
 
-여기서 포스트맨으로 백에서 테스트시에 잘작동하였으나 프론트와 통신할 때는 작동하지 않음<br>
-프론드 개발도구에서 노란색 경고창 문구를 확인 <br>
-경고창 문구를 검색해보니 SameSite 에 대한 내용이었음 <br>
-크롬 80버전 부터는 새로운 쿠키 정책이 적용 되어 Cookie의 SameSite속성의 기본값이 'None'에서 'Lax' 로 변경됨<br>
-따라서 쿠키 처리 할대에 SameSite값을 None으로 해줘야 함<br>
-프록시서버에서 SameSite 값을 설정하여 조회수 중복 해결<br><br>
+여기서 포스트맨으로 백에서 테스트시에 잘작동하였으나 프론트와 통신할 때는 작동하지 않았습니다.<br>
+통신을 하면서 프론드 개발도구를 찬찬히 뜯어보는 와중에 쿠키에 대한노란색 경고창 문구를 확인하였습니다. <br>
+경고창 문구를 검색해보니 SameSite 에 대한 내용이었습니다. <br>
+크롬 80버전 부터는 새로운 쿠키 정책이 적용 되어 Cookie의 SameSite속성의 기본값이 'None'에서 'Lax' 로 변경됨을 알았습니다.<br>
+따라서 쿠키 처리 할대에 SameSite값을 None으로 해줘야 했습니다.<br>
+프록시서버에서 SameSite 값을 설정하여 조회수 중복 해결할 수 있었습니다.<br><br>
 ![image](https://user-images.githubusercontent.com/88120776/145165877-f9768d71-2a18-4426-8c72-3ae3c2ebb122.png)
 
 ## 2. table에 없는 like_state 값 계산 
