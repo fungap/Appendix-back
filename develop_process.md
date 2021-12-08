@@ -7,4 +7,7 @@
 - 해당 작업을 진행할 개발자가 정해지면 assign 해둔다.
 - roqkfwksms issue/<이슈번호> 네이밍을 가진 브랜치를 dev에서 체크아웃한다. 이슈 번호가 9번이라면 issue/9같은 식이다.
 - 작업이 완료 되면 동료 개발자에게 리뷰를 요청하고, 확인후 dev에 merge한다.
-- 문제없이 작업이 완료되었다면 issue 를 close하고 작업 브랜치를 제거한다.
+- 문제없이 작업이 완료되었다면 issue 를 close하고 작업 브랜치를 제거한다.<br>
+<br>
+
+![image](https://user-images.githubusercontent.com/88120776/145159961-1f365352-69b0-4b1e-a528-585bfd0dc6e7.png)
