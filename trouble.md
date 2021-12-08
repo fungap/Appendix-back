@@ -23,7 +23,6 @@
 테이블 설계 에서 likes 테이블은 아래와 같았습니다.<br><br>
 ![image](https://user-images.githubusercontent.com/88120776/145166722-6bf3a1c1-94c3-4468-b8f2-4238b93330b1.png)<br><br>
 특정 유저가 어떤 게시글의 좋아요를 누르면 위의 DB에 저장이 됩니다. 따라서 게시글에서 해당 유저로 로그인이 되었을때 likes table에 해당 colum이 있으면 좋아요를 누른것으로 반별 합니다.<br>
-try
 - 처음 sequelize문으로 시도 했으나 3개의 조인과 2개의 카운트 가 갖는 복잡도의 난이도 때문에 구현 실패하였습니다.
 - 따라서 아래돠 같은 쿼리 case 문을 사용해 like state값을 likes 테이블에서 해당유저의 board_id 값이 있다면 'true' 없으면 'false' 를 반환하게 하였습니다.  
 ```
@@ -61,5 +60,4 @@ select t1.board_id, t1.board_title, t1.board_image, t1.view_count, t1.like_count
   group by b.board_id
   ORDER BY b.createdAt DESC) as t2
   on t1.board_id = t2.board_id
-  ORDER BY t1.like_count DESC
   ```
