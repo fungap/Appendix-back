@@ -15,11 +15,6 @@
   없게 된다면 undifined가 들어가므로 그에대한 처리를 해줘야 한다. 처리를 안해주었을경우 오류가 뜨게 된다.
   ![image](https://user-images.githubusercontent.com/88120776/144174811-61092e29-5992-4d1b-b87c-df4a0fdd653a.png)
 
-
-  ### 우리는 이 값이 확실이 있는것임을 확신한다.
-  ### sequelize 와 typescript
-  
-  --------------------------------------
   
   ### promise.all 타입 unknown[] 이슈 (아직 미해결)
   
