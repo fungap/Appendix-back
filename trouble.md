@@ -61,3 +61,18 @@ select t1.board_id, t1.board_title, t1.board_image, t1.view_count, t1.like_count
   ORDER BY b.createdAt DESC) as t2
   on t1.board_id = t2.board_id
   ```
+  
+  ## 3. 젠킨스 파이프라인 구축시에 GCP에서는 연결이 안되던 문제
+  EC2 서버를 배포 서버를 두었을때 잘 동작 하던 젠킨스가 GCP 에서는 잘 안되던 문제가 있었습니다.<br>
+  젠킨스로 gcp 연결시에 permission denied 에러가 발생하는 것이 었습니다.<br>
+  EC2에서 연결 시에는 아래 방법을 사용합니다.<br>
+ - jenkins 계정에서 keygen 으로 ssh 키 발행을 합니다.
+ - ~/.ssh/id_rsa.pub 의 키를 복사 합니다.
+ - 접속하고자하는 배포 서버에서 ~/.ssh/authorized_keys 에 붙여 넣습니다.
+ - ssh ubuntu@NODE.APP.SERVER.IP 로 접속합니다.<br>
+  
+  첫번째 위의 똑가ㅣㅌ은 방법으로 연결하였는데 똑같은 방법으로 GCP 를 연결해보았지만  permission denied 가 계속 발생하였습니다.<br>
+  두번째 GCP는 ssh 연결을 설정 의 메타데이터에 ssh키를 집어넣고 연결을 해야 하는데 그렇게 했음에도 불구하고 같은 에러가 발생하였습니다.<br>
+  세번째 permission 에러 에서 public 키로 연결 하지말고 private 키로 연결 하는 방법을 사용했습니다.sudo ssh -i ~/.ssh/id_rsa jenkins@NODE.APP.SERVER.IP<br>
+  마지막 세번째 방법을 사용 후에 연결이 되었습니다. 
+  
