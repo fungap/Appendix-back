@@ -1,5 +1,14 @@
+[readme로-돌아가기](https://github.com/fungap/fungap-back)
+<img src="https://img.shields.io/badge/Python-3766AB?style=flat-square&logo=Python&logoColor=white"/></a>&nbsp
+
 ## Chatting
 
+### 정확한 로깅을 위해서 욕설이라도 채팅은 전체 데이터를 DB에 저장하는 것이 좋아보인다. 욕설이 필요없는 데이터라고 생각한 이유는 무엇인가?
+
+이라는 피드백을 받았다
+욕설 데이터도 나중에 경고메세지 라던지 제재를 가한다던지 하는 데이터로 쓸 수도 있고 어떻게 활용하냐에 따라 좋은 정보가 될 수 있기 때문에 저장하는 것이 맞다
+현재는 욕설 필터링에 걸리면 그 부분은 채팅로그(조회가 일어나는)에 저장하는 것이 아니라 백업채팅로그에 저장하도록 하여서 사용자에게 보여주지는 않되 데이터는 보존하는 형태로 구현을 하였다.
+![image](https://user-images.githubusercontent.com/46738141/144458209-89a20c64-7c7d-4a11-a536-e9d273e5232b.png)
 
 ![room별 유저리스트](https://user-images.githubusercontent.com/46738141/144252640-1731eee9-611b-41a1-891a-a722bafb84d7.png)
 위 그림 처럼 각 방의 유저리스트라는 배열을 선언하고
@@ -23,4 +32,3 @@
 이 것을 이용해 disconnect가 발생하면 user_left랑 비슷하게 모든 방에서 나가게 구현 하였더니
 잘 작동하였다
 ![image](https://user-images.githubusercontent.com/46738141/144264832-adb47e29-bfc3-4186-b1c1-7bcc98f1e2bc.png)
-
