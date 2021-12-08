@@ -70,9 +70,9 @@ select t1.board_id, t1.board_title, t1.board_image, t1.view_count, t1.like_count
  - ~/.ssh/id_rsa.pub 의 키를 복사 합니다.
  - 접속하고자하는 배포 서버에서 ~/.ssh/authorized_keys 에 붙여 넣습니다.
  - ssh ubuntu@NODE.APP.SERVER.IP 로 접속합니다.<br>
-  
-  첫번째 위의 똑가ㅣㅌ은 방법으로 연결하였는데 똑같은 방법으로 GCP 를 연결해보았지만  permission denied 가 계속 발생하였습니다.<br>
-  두번째 GCP는 ssh 연결을 설정 의 메타데이터에 ssh키를 집어넣고 연결을 해야 하는데 그렇게 했음에도 불구하고 같은 에러가 발생하였습니다.<br>
+  try<br>
+  첫번째 위와 똑같은 방법으로 GCP 를 연결해보았지만  permission denied 가 계속 발생하였습니다.<br>
+  두번째 GCP는 ssh 연결을 설정의 메타데이터에 ssh키를 집어넣고 연결을 해야 하는데 그렇게 했음에도 불구하고 같은 에러가 발생하였습니다.<br>
   세번째 permission 에러 에서 public 키로 연결 하지말고 private 키로 연결 하는 방법을 사용했습니다.sudo ssh -i ~/.ssh/id_rsa jenkins@NODE.APP.SERVER.IP<br>
   마지막 세번째 방법을 사용 후에 연결이 되었습니다. 
-  
+  구글링을 많이 해보았지만 세번째 와 같은 방법이 나오지는 않았습니다. 에러가 나왔을때 왜 이런 에러를 띄우며 어떨때 에러가 나오는지 좀더 깊이 생각 해보고 방법을 찾아야 할 것 같다고 느   꼈습니다. 
