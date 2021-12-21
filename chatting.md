@@ -23,7 +23,7 @@
 ![image](https://user-images.githubusercontent.com/46738141/144253287-c0192721-17c9-46dd-bda5-800362c06c3b.png)
 
 언뜻 보기엔 잘 구현이 된 것 처럼 보였지만 다른 페이지로의 이동이 아닌 브라우저를 바로 종료해 버리면
-바로 socket disconnect가 일어나 user_left 이벤트를 보내지 못하는 현상이 발생하였고, 그로 인해 유저 목록에서 지워지지 못해 반 영구적으로 남아 있는 현상으로 발전하였다.
+바로 socket disconnect가 일어나 user_left 이벤트를 보내지 못하는 현상이 발생하였고, 그로 인해 유저 목록에서 지워지지 못해 반 영구적으로 남아 있는 현상으로 발생하였다.
 ![계속해서 남아있는 유령유저](https://user-images.githubusercontent.com/46738141/144254783-66fdb2e2-85d3-4e83-83cd-6076dbf6ac1b.png)
 
 처음에는 disconnect 이벤트에 될거라 생각해 시도해 보았지만
