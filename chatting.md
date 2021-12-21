@@ -1,5 +1,5 @@
 [readme로-돌아가기](https://github.com/fungap/fungap-back)
-<img src="https://img.shields.io/badge/Python-3766AB?style=flat-square&logo=Python&logoColor=white"/></a>&nbsp
+</a>&nbsp
 
 ## Chatting
 
@@ -10,6 +10,7 @@
 현재는 욕설 필터링에 걸리면 그 부분은 채팅로그(조회가 일어나는)에 저장하는 것이 아니라 백업채팅로그에 저장하도록 하여서 사용자에게 보여주지는 않되 데이터는 보존하는 형태로 구현을 하였다.
 ![image](https://user-images.githubusercontent.com/46738141/144458209-89a20c64-7c7d-4a11-a536-e9d273e5232b.png)
 
+### 유저리스트 관련 처리
 ![room별 유저리스트](https://user-images.githubusercontent.com/46738141/144252640-1731eee9-611b-41a1-891a-a722bafb84d7.png)
 위 그림 처럼 각 방의 유저리스트라는 배열을 선언하고
 
