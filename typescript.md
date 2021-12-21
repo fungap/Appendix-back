@@ -11,7 +11,7 @@
   
   ### undifined <br>
   
-  undifinde에 대한 처리를 그동안 엄청 소홀해 왔다는 것을 깨닫는다. typescript는 이러한 타입의 처리를 놓치지 않게 하며 여태 놓쳐왔던 undifined와 null값을 예외적으로 처리 할수 있게 되어서
+  undifined에 대한 처리를 그동안 엄청 소홀해 왔다는 것을 깨닫는다. typescript는 이러한 타입의 처리를 놓치지 않게 하며 여태 놓쳐왔던 undifined와 null값을 예외적으로 처리 할수 있게 되어서
   코드의 오류를 줄여줌을 체감했다.
   아래 코드는 user_mbti 와 count가 있을수 있고 없을수 있다. <br>
   없게 된다면 undifined가 들어가므로 그에대한 처리를 해줘야 한다. 처리를 안해주었을경우 오류가 뜨게 된다.
