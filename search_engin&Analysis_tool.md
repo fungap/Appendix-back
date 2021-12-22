@@ -134,6 +134,8 @@ filter : db에서 가져온 데이터를 elascticsearch에 원하는 형태로 �
 output : 최종적으로 elasticsearch 서버에 host, user, password, 저장할 index 등을 설정하여<br>
 저장한다.
 
+logstash config 코드
+(mysql.conf)[https://github.com/criminal415/IL/blob/main/Search/mysql.conf]
 ### elasticsearch
 
 #### 1. inverted index
@@ -201,14 +203,16 @@ output : 최종적으로 elasticsearch 서버에 host, user, password, 저장할
 따라서 이러한 web 로그들을 효과적으로 이용하여 fungap 서비스의 보완점과 취약점을<br>
 훨씬 분석적으로 접근할 수 있겠다고 생각하여 ELK stack과 Beats를 사용하게 되었습니다.
 
-하루 약 200건 이상의 비정상적 접근
-<img src="https://user-images.githubusercontent.com/90595291/144362364-de6b0587-ce23-4e38-8867-70e16ae2a764.png" width= "50%" height="50%">
+(filebeat.conf)[https://github.com/criminal415/IL/blob/main/Search/filebeat.conf] 
 
-검색어 순위(인기 검색어)
-<img src="https://user-images.githubusercontent.com/90595291/144362603-9651dbf6-45f7-45d4-b5b3-71ec3ff4b951.png" width= "50%" height="50%">
+하루 약 200건 이상의 비정상적 접근 <br>
+<img src="https://user-images.githubusercontent.com/90595291/144362364-de6b0587-ce23-4e38-8867-70e16ae2a764.png" width= "50%" height="50%"> <br>
 
-총 이벤트 수, 접속 ip수, 평균 바이트
-<img src="https://user-images.githubusercontent.com/90595291/144362763-d6a7ba8f-ebbe-419c-adaa-e6c0b5570dda.png" width= "50%" height="50%">
+검색어 순위(인기 검색어) <br>
+<img src="https://user-images.githubusercontent.com/90595291/144362603-9651dbf6-45f7-45d4-b5b3-71ec3ff4b951.png" width= "50%" height="50%"> <br>
 
-지도위 geo ip 위치
-<img src="https://user-images.githubusercontent.com/90595291/144363013-7315e3e8-b4bd-4dd2-8357-d50f40076870.png" width= "50%" height="50%">
+총 이벤트 수, 접속 ip수, 평균 바이트 <br>
+<img src="https://user-images.githubusercontent.com/90595291/144362763-d6a7ba8f-ebbe-419c-adaa-e6c0b5570dda.png" width= "50%" height="50%"> <br>
+
+지도위 geo ip 위치 <br>
+<img src="https://user-images.githubusercontent.com/90595291/144363013-7315e3e8-b4bd-4dd2-8357-d50f40076870.png" width= "50%" height="50%"> <br>
