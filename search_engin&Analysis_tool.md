@@ -135,7 +135,7 @@ output : 최종적으로 elasticsearch 서버에 host, user, password, 저장할
 저장한다.
 
 logstash config 코드
-(mysql.conf)[https://github.com/criminal415/IL/blob/main/Search/mysql.conf]
+[mysql.conf](https://github.com/criminal415/IL/blob/main/Search/Appendix/mysql.conf)
 ### elasticsearch
 
 #### 1. inverted index
@@ -203,7 +203,7 @@ logstash config 코드
 따라서 이러한 web 로그들을 효과적으로 이용하여 fungap 서비스의 보완점과 취약점을<br>
 훨씬 분석적으로 접근할 수 있겠다고 생각하여 ELK stack과 Beats를 사용하게 되었습니다.
 
-(filebeat.conf)[https://github.com/criminal415/IL/blob/main/Search/filebeat.conf] 
+[logstash config 파일 filebeat.conf](https://github.com/criminal415/IL/blob/main/monitoring/Appendix/filebeat.conf) 
 
 하루 약 200건 이상의 비정상적 접근 <br>
 <img src="https://user-images.githubusercontent.com/90595291/144362364-de6b0587-ce23-4e38-8867-70e16ae2a764.png" width= "50%" height="50%"> <br>
